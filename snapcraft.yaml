@@ -1,0 +1,21 @@
+name: erlang
+version: '19.0.5'
+summary: Build massively scalable soft real-time systems
+description: |
+  Erlang is a programming language used to build massively scalable soft
+  real-time systems with requirements on high availability.
+confinement: strict
+grade: stable
+
+apps:
+  erl:
+    command: usr/local/bin/erl
+    plugs: [network]
+  erlc:
+    command: usr/local/bin/erlc
+
+parts:
+  erlang:
+    source: .
+    plugin: autotools
+    build-packages: [gcc, libc6-dev, libncurses5-dev]
